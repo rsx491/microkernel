@@ -112,3 +112,16 @@ userspace policy and are not inherent kernel thread semantics.
 - ownership and lifetime rules for AddressSpace and CapabilitySpace
 - whether threads may switch AddressSpace or CapabilitySpace after start
 - initial scheduling policy
+
+## Related Decisions
+
+Kernel-object ownership, reference management, and
+destruction semantics are defined in
+[ADR-0004: Kernel-Object Lifetime](0004-kernel-object-lifetime.md).
+
+Thread termination and kernel-object destruction are
+distinct operations.
+
+A thread's references to its AddressSpace and
+CapabilitySpace contribute to their lifetimes,
+independently of userspace-held capabilities.
